@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/common.css">
+    <title>Update Student</title>
+</head>
+<body>
+    <h1>Update Student</h1>
+    <hr class="colored-line">
+    <form id="updateStudentForm">
+        <label for="studentRollNo">Roll No:</label>
+        <input type="text" id="studentRollNo" required>
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" required>
+        <label for="studentMobileNumber">Mobile No:</label>
+        <input type="text" id="studentMobileNumber" required>
+        <label for="studentEmailID">Email ID:</label>
+        <input type="email" id="studentEmailID" required>
+        <label for="studentAddress">Address:</label>
+        <input type="text" id="studentAddress" required>
+        <div class="button-container">
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </div>
+    </form>
+    <hr class="colored-line">
+    <div class="home-button-container">
+        <button onclick="window.location.href='index.html'">Home</button>
+    </div>
+    <hr class="colored-line">
+    <div id="result"></div>
+    <script src="src/js/common.js"></script>
+</body>
+</html>

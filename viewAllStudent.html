@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/common.css">
+    <title>View All Students</title>
+</head>
+<body>
+    <h1>Student Details</h1>
+    <hr class="colored-line">
+    <div id="result"></div>
+    <hr class="colored-line">
+    <div class="home-button-container">
+        <button onclick="window.location.href='index.html'">Home</button>
+    </div>
+    <script src="src/js/common.js"></script>
+    <script>
+        // Function to populate student table
+        function populateStudentTable() {
+            const students = JSON.parse(sessionStorage.getItem('allStudents'));
+            const resultDiv = document.getElementById('result');
+            if (students && students.length > 0) {
+                let tableRows = '';
+
+                students.forEach((student, index) => {
+                    tableRows += `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${student.studentRollNo}</td>
+                            <td>${student.studentName}</td>
+                            <td>${student.studentMobileNumber}</td>
+                            <td>${student.studentEmailID}</td>
+                            <td>${student.studentAddress}</td>
+                        </tr>
+                    `;
+                });
+
+                resultDiv.innerHTML = `
+                    <table border="1">
+                        <tr>
+                            <th>SL No</th>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Mobile No</th>
+                            <th>Email ID</th>
+                            <th>Address</th>
+                        </tr>
+                        ${tableRows}
+                    </table>
+                `;
+            } else {
+                resultDiv.innerHTML = '<p>No records available.</p>';
+            }
+        }
+
+        // Call the function to populate the table when the page loads
+        window.onload = populateStudentTable;
+    </script>
+</body>
+</html>
